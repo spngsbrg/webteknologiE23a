@@ -6,6 +6,86 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <p id="personInfo"></p>
+
+    <script>
+      
+      //Create objects via literal notation (like JSON)
+      
+      const person1 = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 39,
+
+        getFullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+        olderThanMe: function (person) {
+          if (this.age > person.age) {
+            return this.firstName + " is older than " + person.firstName;
+          } else if (this.age === person.age) {
+            return this.firstName + " is as old as " + person.firstName;
+          } else if (this.age < person.age) {
+            return person.firstName + " is older than " + this.firstName;
+          }
+        },
+      };
+
+      const person2 = {
+        firstName: "Jane",
+        lastName: "Doe",
+        age: 39,
+
+        getFullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+        olderThanMe: function (person) {
+          if (this.age > person.age) {
+            return this.firstName + " is older than " + person.firstName;
+          } else if (this.age === person.age) {
+            return this.firstName + " is as old as " + person.firstName;
+          } else if (this.age < person.age) {
+            return person.firstName + " is older than " + this.firstName;
+          }
+        },
+      };
+
+      const person3 = {
+        firstName: "Foo",
+        lastName: "Bar",
+        age: 42,
+
+        getFullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+        olderThanMe: function (person) {
+          if (this.age > person.age) {
+            return this.firstName + " is older than " + person.firstName;
+          } else if (this.age === person.age) {
+            return this.firstName + " is as old as " + person.firstName;
+          } else if (this.age < person.age) {
+            return person.firstName + " is older than " + this.firstName;
+          }
+        },
+      };
+
+      let personsArray = [person1, person2, person3];
+
+      let infoElement = document.getElementById("personInfo");
+
+      let htmlToInsert = "";
+
+      for (let i in personsArray) {
+        htmlToInsert += personsArray[i].getFullName() + " | ";
+      }
+
+      infoElement.innerHTML = htmlToInsert;
+
+      console.log(person1.olderThanMe(person2));
+      console.log(person2.olderThanMe(person3));
+      
+//Create objects via constructor
+      
     <p id="personConstInfo"></p>
 
     <script>
