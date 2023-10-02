@@ -27,6 +27,7 @@ d3.json("/data/albums.json").then(function (data) {
   showDataOnScreenFromOBJ(cds);
 });
 
+//Function to display info from JSON
 function showDataOnScreenFromJSON(input) {
   d3.select("#dataJSON").append("h2").text("JSON Data:");
   d3.select("#dataJSON")
@@ -39,6 +40,7 @@ function showDataOnScreenFromJSON(input) {
     });
 }
 
+//Function to display custom info from the array of objects
 function showDataOnScreenFromOBJ(input) {
   d3.select("#dataOBJ").append("h2").text("Object Data:");
   d3.select("#dataOBJ")
@@ -51,6 +53,7 @@ function showDataOnScreenFromOBJ(input) {
     });
 }
 
+//Function to create an array of objects from the JSON data
 function createCDObjects(input) {
   let cdObjects = [];
   for (let i in input) {
@@ -64,6 +67,7 @@ function createCDObjects(input) {
   return cdObjects;
 }
 
+//Constructor function for CD objects
 function CD(artist, title, numberOfTracks) {
   this.artist = artist;
   this.title = title;
