@@ -5,5 +5,38 @@
     <title>Modul 05</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <p id="personConstInfo"></p>
+
+    <script>
+      function person(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.liveOneYear = function () {
+          this.age++;
+          return this;
+        };
+        this.sayHello = function () {
+          return (
+            "Hello my name is " +
+            this.firstName +
+            " and I am " +
+            this.age +
+            " years old."
+          );
+        };
+      }
+
+      const jane = new person("Jane", "Doe", 38);
+      const john = new person("John", "Doe", 39);
+
+      console.log(jane.firstName);
+      console.log(john.firstName);
+      console.log(john.age);
+      //Method chaining
+      console.log(john.liveOneYear().liveOneYear().liveOneYear().sayHello());
+      console.log(john.age);
+    </script>
+  </body>
 </html>
