@@ -18,7 +18,7 @@ const svg = d3
 //Create bars based on data and append to svg
 
 // 1st:
-
+/*
 svg
   .selectAll("rect")
   .data(dataset)
@@ -32,24 +32,23 @@ svg
     return d;
   })
   .attr("fill", "black");
-
+*/
 //2nd:
 /*
-  svg
-    .selectAll("rect")
-    .data(dataset)
-    .enter()
-    .append("rect")
-    .attr("x", function (d, i) {
-      return i * (w / dataset.length);
-    })
-    .attr("width", w / dataset.length - padding)
-    .attr("height", function (d) {
-      return d * 4;
-    })
-    .attr("fill", "black");
+svg
+  .selectAll("rect")
+  .data(dataset)
+  .enter()
+  .append("rect")
+  .attr("x", function (d, i) {
+    return i * (w / dataset.length);
+  })
+  .attr("width", w / dataset.length - padding)
+  .attr("height", function (d) {
+    return d * 4;
+  })
+  .attr("fill", "black");
 */
-
 //3rd:
 /*
 svg
@@ -69,7 +68,7 @@ svg
   })
   .attr("fill", "black");
 */
-/*
+
 svg
   .selectAll("rect")
   .data(dataset)
@@ -88,10 +87,9 @@ svg
   .attr("fill", function (d) {
     return "rgb(0,0," + Math.round(d * 10) + ")";
   });
-*/
 
 //Add labels to bars:
-/*
+
 svg
   .selectAll("text")
   .data(dataset)
@@ -106,4 +104,3 @@ svg
   .attr("y", function (d) {
     return h - d * 4;
   });
-*/
