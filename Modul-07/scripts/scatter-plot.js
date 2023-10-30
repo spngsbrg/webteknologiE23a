@@ -32,4 +32,5 @@ svg
     return d[1];
   })
   //Radius er en konstant på '5'
-  .attr("r", 5);
+  .attr("r", function(d){ return d[1]/2})
+  .attr("fill", function(d){return "rgb(" + d[1] + ",0,0)"} );

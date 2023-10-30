@@ -24,7 +24,7 @@ const xScale = d3
       return d[0];
     }),
   ])
-  .range([30, w - 30])
+  .range([10, w - 10])
   .nice();
 
 //Skala for y-aksen
@@ -36,7 +36,7 @@ const yScale = d3
       return d[1];
     }),
   ])
-  .range([30, h - 30])
+  .range([10, h - 10])
   .nice();
 
 //Scatter plot
@@ -57,7 +57,8 @@ svg
   // Radius er ny sat til at være kvadratroden af y-værdien
   .attr("r", function (d) {
     return Math.sqrt(d[1]);
-  });
+  })
+  .attr("fill", function(d){return "rgb(" + d[1] + ",0,0)"} );
 
 //Labels
 svg
