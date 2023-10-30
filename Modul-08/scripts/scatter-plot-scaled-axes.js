@@ -121,3 +121,5 @@ svg
 /**
  * Bonusopgave: Er der en værdi, som vi med fordel kan gemme i en variabel i dette eksempel?
  **/
+
+let hest = 5;
