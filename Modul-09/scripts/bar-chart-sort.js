@@ -127,11 +127,17 @@ function createDefaultChart(dataset) {
 function createScaleX(dataset) {
   return (
     d3
-      //Her brues scaleBand i stedet for ScaleLinear, fordi vi vil have tickmarks jævnt fordelt i "bånd" på x-aksen og ikke ved hver x-værdi
+      /**
+       * Her brues scaleBand i stedet for ScaleLinear
+       * Dette skyldes at vi vil have tickmarks jævnt fordelt i "bånd" på midten af hver søjle.
+       * Før har vi gjort det ved hver start på en en søjle - altså dens x-værdi.
+       * Jeg fjerner dem senere, men der sørger også for at placere labels rigtigt i forhold til søjlerne.
+       * */
       .scaleBand()
       .range([padding + axisPadding, w - padding - axisPadding])
       .domain(
-        /**Arrays har en indbygget metode som hedder 'map'.
+        /**
+         * Arrays har en indbygget metode som hedder 'map'.
          * Den tager en callback-funktion som parameter.
          * Callback-funktionen køres en gang for hvert element i arrayet.
          * Der er altid tre parametre til callback-funktionen:
@@ -204,8 +210,10 @@ function formatAxisX() {
   svg
     .select("#xAxis")
     .call(xAxis)
+    //Her fjernes tickmarks fra x-aksen - det synes jeg ser pænere ud
+    .call(xAxis.tickSize(0))
     .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
+    .attr("transform", "translate(-10,5)rotate(-45)")
     .style("text-anchor", "end");
 }
 
@@ -223,7 +231,8 @@ function animateData(data, isFastest) {
     .transition()
     //Lad den vare 2000 ms
     .duration(2000)
-    /** Dette skal være slutresultatet: flyt søjlerne til de nye positioner
+    /**
+     * Dette skal være slutresultatet: flyt søjlerne til de nye positioner
      * 'width', 'height' og 'color' er de samme som før,
      * så dem behøver vi ikke at tage med i vores 'transition'
      * Men i praksis kan man sagtens animere flere ting på én gang, hvis man vil.
