@@ -12,6 +12,8 @@ const dataset = [
   [475, 44],
 ];
 
+let hello = "hest";
+
 //SVG-elementet
 const svg = d3.select("body").append("svg").attr("width", w).attr("height", h);
 
