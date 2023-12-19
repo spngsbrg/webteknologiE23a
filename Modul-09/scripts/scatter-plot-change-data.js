@@ -100,11 +100,11 @@ function createAxisY(xScale) {
 }
 
 function addSVG(svgWidth, svgHeight) {
-  return (svg = d3
+  return d3
     .select("body")
     .append("svg")
     .attr("width", svgWidth)
-    .attr("height", svgHeight));
+    .attr("height", svgHeight);
 }
 
 //Denne funktion sætter de dynamiske værdier som skal bruges til at lave scales og akser
